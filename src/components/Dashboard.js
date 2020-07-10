@@ -10,12 +10,12 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete'
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
-import AddOrder from './AddOrder'
+import AddLicense from './AddLicense'
  
 const Dashboard = (props) => {
     return (
         <Container maxWidth="lg" className="license-container">
-            <AddOrder licenseTotal = {props.licenses.length}/>
+            <AddLicense licenseTotal = {props.licenses.length}/>
             <Table className="license-table">
                 <TableHead>
                     <TableRow className="license-table-header">

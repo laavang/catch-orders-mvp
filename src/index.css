@@ -16,3 +16,7 @@ code {
   height: 330px !important;
   max-height: 330px !important;
 }
+
+button, button:active, button:focus {
+  background-color: #d8303e;
+}

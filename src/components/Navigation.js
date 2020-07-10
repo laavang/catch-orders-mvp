@@ -9,7 +9,7 @@ import logo from '../logo.svg';
 
 const Navigation = () => {
     return (
-        <AppBar position="relative">
+        <AppBar position="relative" className="app-bar">
             <Toolbar>
                 <div className="logo">
                     <img src={logo} />
@@ -18,8 +18,13 @@ const Navigation = () => {
                     Orders
                 </Typography>
                 <ul className="nav-list">
-                    <li className="nav-list-item">
-                        <Link to="/login">Log Out</Link>
+                <li className="nav-list-item"
+                        onClick={() => {
+                            console.log("User logged out")
+                            document.cookie = "loggedIn="
+                            window.location.replace("/login")
+                        }}>
+                        Logout
                     </li>
                 </ul>
             </Toolbar>

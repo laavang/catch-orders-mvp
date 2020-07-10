@@ -7,15 +7,14 @@ import {
     DialogTitle
 } from '@material-ui/core'
 
-class AddOrder extends Component {
+class AddLicense extends Component {
     state = {
         open: false,
-        flaghouseId: "",
-        buyerOrginization: "",
-        organization: "",
-        group: "",
-        license: "",
-        duration: ""
+        flaghouseId: '',
+        buyerOrginization: '',
+        organization: '',
+        group: '',
+        license: ''
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -38,12 +37,11 @@ class AddOrder extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-                flaghouseId: "",
-                buyerOrginization: "",
-                organization: "",
-                group: "",
-                license: "",
-                duration: ""
+                flaghouseId: '',
+                buyerOrginization: '',
+                organization: '',
+                group: '',
+                license: ''
             })
         }
     }
@@ -54,7 +52,7 @@ class AddOrder extends Component {
                 <div className="add-order-button">
                     <Button
                         variant="contained"
-                        className="add-car"
+                        className="add-license"
                         onClick={this.toggleDialog}
                     >
                         Add Order
@@ -91,14 +89,8 @@ class AddOrder extends Component {
                                     value={this.state.license}
                                     onChange={this.handleTextChange}
                                     required />
-                                <TextField
-                                    id="duration"
-                                    placeholder="Duration"
-                                    value={this.state.duration}
-                                    onChange={this.handleTextChange}
-                                    required />
                                 <br />
-                                <Button variant="contained" color="primary" type="submit">Submit Order</Button>
+                                <Button variant="contained" type="submit">Submit Order</Button>
                             </form>
                         </DialogContent>
                     </Dialog>
@@ -108,4 +100,4 @@ class AddOrder extends Component {
     }
 }
 
-export default AddOrder
+export default AddLicense

@@ -96,7 +96,7 @@ ul {
 }
 
 .license-table-row > td {
-  font-size: 8pt;
+  font-size: 11pt;
   padding: 14px 10px;
 }
 
@@ -122,6 +122,7 @@ ul {
 
 .login-form button{
   margin-top: 30px; 
+  background-color: #d8303e !important;
 }
 
 
@@ -129,4 +130,9 @@ ul {
   float: right;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.app-bar {
+  background-image: linear-gradient(45deg, #025da1 30%, #04538f 30%, #04538f 50%, #025da1 50%, #025da1 80%, #04538f 80%, #04538f 100%);
+  background-size: 7.07px 7.07px;
 }

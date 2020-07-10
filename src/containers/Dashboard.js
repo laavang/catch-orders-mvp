@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-// add mapDispatchToProps function here
 const mapDispatchToProps = (dispatch) => {
     return {
         removeLicense: (index) => dispatch(removeLicense(index)),
