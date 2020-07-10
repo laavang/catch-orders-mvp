@@ -24,7 +24,6 @@ const Dashboard = (props) => {
                         <TableCell>Organization</TableCell>
                         <TableCell>Group</TableCell>
                         <TableCell>License</TableCell>
-                        <TableCell>Duration</TableCell>
                         <TableCell>Delete</TableCell>
                     </TableRow>
                 </TableHead>
@@ -36,7 +35,6 @@ const Dashboard = (props) => {
                         <TableCell>{license["organization"]}</TableCell>
                         <TableCell>{license["group"]}</TableCell>
                         <TableCell>{license["license"]}</TableCell>
-                        <TableCell>{license["duration"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
                                 // add onClick method here

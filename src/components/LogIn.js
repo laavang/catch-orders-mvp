@@ -1,20 +1,59 @@
-import React, { Component } from 'react';
-import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button';
-import PersonIcon from '@material-ui/icons/Person';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+import {
+  TextField,
+  Button,
+  Container
+} from '@material-ui/core'
 
-class Login extends Component {
+class App extends Component {
+  state = {
+    username: '',
+    password: ''
+  }
 
-    render() {
-        return (
-            <div class="login-form">
-                <div><PersonIcon className="login-icon"/><Input placeholder="Username" name="username-input" id="username-input" style={{ width: '85%' }}></Input></div>
-                <div><VpnKeyIcon className="login-icon"/><Input placeholder="Password" type="password" name="password-input" id="password-input" style={{ width: '85%' }}></Input></div>
-                <div className="login-button-wrapper"><Button className="login-button" onClick={this.props.login}>Login</Button></div>
-            </div>
-        )
-    }
+  handleTextChange = (e) => {
+    const state = { ...this.state }
+    state[e.target.name] = e.target.value
+    this.setState(state)
+  }
+
+  login = (e) => {
+    e.preventDefault()
+    // set cookie here
+    document.cookie = "loggedIn=true;max-age=60*1000";
+    window.location.replace("/")
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Container maxWidth="sm">
+          <form className="login-form" onSubmit={this.login}>
+            <TextField
+              required
+              onChange={this.handleTextChange}
+              value={this.state.username}
+              name="username"
+              label="Username"
+              type="text" />
+            <TextField
+              required
+              onChange={this.handleTextChange}
+              value={this.state.password}
+              name="password"
+              label="Password"
+              type="password" />
+            <Button
+              type="submit"
+              className="login-button"
+              variant="contained"
+              color="primary">Login</Button>
+          </form>
+        </Container>
+      </div>
+    );
+  }
 }
 
-export default Login
+export default App;

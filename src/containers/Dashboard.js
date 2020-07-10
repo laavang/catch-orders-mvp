@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         removeLicense: (index) => dispatch(removeLicense(index)),
-        addLicense: (index) => dispatch(addLicense(index))
+        addLicense: (license) => dispatch(addLicense(license))
     }
 }
 
