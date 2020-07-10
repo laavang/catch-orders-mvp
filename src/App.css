@@ -1,13 +1,4 @@
-.card-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.card {
-  width: 20vw;
-  margin: 25px;
-}
 
 a {
   text-decoration: none;
@@ -58,10 +49,6 @@ ul {
   margin: 50px;
 }
 
-.car-paper {
-  padding: 50px;
-}
-
 .logo {
   background-color: white;
   display: flex;
@@ -89,28 +76,6 @@ ul {
 .toolbar-header {
   position: relative;
   left: 200px;
-}
-
-.license-table {
-  margin-top: 30px;
-}
-
-.license-table-row > td {
-  font-size: 11pt;
-  padding: 14px 10px;
-}
-
-.license-table-header > th {
-  padding: 14px 10px;
-}
-
-
-
-.login-icon {
-  color: #3f51b5;
-  position: relative;
-  top: 10px;
-  margin-right: 16px;
 }
 
 .login-form {

@@ -1,10 +1,8 @@
 import React from 'react'
 import {
-    AppBar, Toolbar, IconButton,
+    AppBar, Toolbar,
     Typography
 } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'react-router-dom'
 import logo from '../logo.svg';
 
 const Navigation = () => {

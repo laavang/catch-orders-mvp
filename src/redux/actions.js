@@ -1,16 +1,19 @@
 
-
-export const removeLicense = (index) => {
+export const addCar = (car) => {
     return {
-        type: 'REMOVE_LICENSE',
+        type: 'ADD_CAR',
+        value: car
+    }
+}
+
+export const removeCar = (index) => {
+    return {
+        type: 'REMOVE_CAR',
         value: index
     }
 }
 
-export const addLicense = (license) => {
-    return {
-        type: 'ADD_LICENSE',
-        value: license
-    }
-}
+
+
+
 

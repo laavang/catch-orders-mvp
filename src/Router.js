@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import Dashboard from './containers/Dashboard'
-import LogIn from './components/LogIn'
+import LogIn from './components/Login'
 import cookie from 'cookie'
 
 
@@ -30,5 +30,3 @@ const Router = () => {
 };
 
 export default Router;
-
-

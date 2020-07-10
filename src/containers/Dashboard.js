@@ -1,18 +1,19 @@
 import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
-import { removeLicense, addLicense } from '../redux/actions'
+// import { removeCar } action here
+import { removeCar } from '../redux/actions'
 
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        licenses: state.licenses
+        cars: state.cars
     }
 }
 
+// add mapDispatchToProps function here
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeLicense: (index) => dispatch(removeLicense(index)),
-        addLicense: (license) => dispatch(addLicense(license))
+        removeCar: (index) => dispatch(removeCar(index))
     }
 }
 

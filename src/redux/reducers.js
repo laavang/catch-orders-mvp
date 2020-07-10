@@ -2,18 +2,17 @@ import { combineReducers } from 'redux'
 
 const user = (state = null) => state
 
-const licenses = (state = [], action) => {
-    switch (action.type) {
-        case 'DELETE_LICENSE':
-            console.log("Action value: " + action.value)
-            const licenses = [...state]
-            licenses.splice(action.value, 1)
-            return licenses
-        case 'ADD_LICENSE':
-            return [...state, action.value]
+const cars = (state = [], action) => {
+    switch(action.type) {
+        case 'ADD_CAR':
+            return [ ...state, action.value ]
+        case 'REMOVE_CAR':
+            const cars = [ ...state ]
+            cars.splice(action.value, 1)
+            return cars
         default:
             return state
     }
 }
 
-export default combineReducers({ user, licenses })
+export default combineReducers({ user, cars })
