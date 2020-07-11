@@ -56,15 +56,13 @@ class AddCar extends Component {
     render() {
         return (
             <Fragment>
-                <div style={{ textAlign: 'center' }}>
                     <Button
                         variant="contained"
-                        className="add-car"
+                        className="add-license"
                         onClick={this.toggleDialog}
                     >
                         Add License
                     </Button>
-                </div>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
                         <DialogTitle>Add License</DialogTitle>
