@@ -3,7 +3,7 @@ export default {
         username: 'test-user-1',
         email: 'test-user@example.com'
     },
-    cars: [
+    licenses: [
         {
            "id": 1,
            "flaghousePO":"PO823012",
@@ -32,7 +32,6 @@ export default {
            "site":"Austin YMCA - Townlake",
            "license":"[Item #15] CATCH Kids Club K-5 Physical Activity Pack"
         }
-    ],
-    makes: []
+    ]
   };
   

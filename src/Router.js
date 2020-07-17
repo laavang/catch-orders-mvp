@@ -1,13 +1,12 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import Dashboard from './containers/Dashboard'
-import LogIn from './components/Login'
+import Login from './containers/Login'
 import cookie from 'cookie'
-
 
 const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
-    return cookies["loggedIn"] ? true : false
+    return cookies["isLoggedIn"] ? true : false
 }
 const ProtectedRoute = ({component: Component, ...rest}) => {
     return (
@@ -22,11 +21,11 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 
 const Router = () => {
     return (
-        <Switch>
-            <Route path="/login" component={LogIn} />
-            <ProtectedRoute exact path="/" component={Dashboard} />
-        </Switch>
-    );
-};
+            <Switch>
+                <Route path="/login" component={Login} />
+                <ProtectedRoute path="/" component={Dashboard} />
+            </Switch>
+    )
+}
 
-export default Router;
+export default Router

@@ -7,7 +7,7 @@ import {
     DialogTitle
 } from '@material-ui/core'
 
-class AddCar extends Component {
+class AddLicense extends Component {
     state = {
         open: false,
         name: '',
@@ -105,4 +105,4 @@ class AddCar extends Component {
     }
 }
 
-export default AddCar
+export default AddLicense

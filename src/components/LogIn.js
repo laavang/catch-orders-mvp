@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router'
+// import { Redirect } from 'react-router'
 import {
   TextField,
   Button,
   Container
 } from '@material-ui/core'
 
-class App extends Component {
+class Login extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    isLoggedIn: false
   }
 
   handleTextChange = (e) => {
@@ -21,8 +22,10 @@ class App extends Component {
   login = (e) => {
     e.preventDefault()
     // set cookie here
-    document.cookie = "loggedIn=true;max-age=60*1000";
-    window.location.replace("/")
+    this.state.isLoggedIn = true;
+    document.cookie = "isLoggedIn=true;";
+    this.props.logIn(this.state)
+    this.props.history.push("/")
   }
 
   render() {
@@ -56,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Login;
