@@ -28,4 +28,13 @@ const user = (state = { username: null, password: null, isLoggedIn: false }, act
     }
 }
 
-export default combineReducers({ user, licenses })
+const licenseFilter = (state = {licenseFilter : "open"}, action) => {
+    switch(action.type) {
+        case 'FILTER_LICENSES':
+            return action.value
+        default:
+            return state
+    }
+}
+
+export default combineReducers({ user, licenses, licenseFilter })

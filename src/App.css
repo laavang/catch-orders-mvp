@@ -16,12 +16,12 @@ ul {
 }
 
 .add-license {
-  background: #4caf50 !important;
+  background: #29b929 !important;
   color: white !important;
 }
 
 .icon {
-  font-size: medium !important;
+  font-size: large !important;
 }
 
 .icon:hover {
@@ -39,6 +39,9 @@ ul {
 .nav-list {
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 0px;
 }
 
 .nav-list-item {
@@ -48,6 +51,66 @@ ul {
 .license-container {
   margin: 50px;
 }
+
+.add-license {
+  font-size: 10pt !important;
+  padding: 6px 12px 4px 12px !important;
+  margin: 5px 0px !important;
+}
+
+
+.open-licenses-table > thead > tr > th:nth-of-type(1) {
+  width: 10%;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(2) {
+  width: 15%;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(3) {
+  width: 15%;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(4) {
+  width: 40%;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(5) {
+  width: 5%;
+  font-size: 9pt;
+  text-align: center;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(6) {
+  width: 5%;
+  font-size: 9pt;
+  text-align: center;
+}
+.open-licenses-table > thead > tr > th:nth-of-type(7) {
+  width: 5%;
+  font-size: 9pt;
+  text-align: center;
+}
+
+.closed-licenses-table > thead > tr > th:nth-of-type(1) {
+  width: 10%;
+}
+.closed-licenses-table > thead > tr > th:nth-of-type(2) {
+  width: 15%;
+}
+.closed-licenses-table > thead > tr > th:nth-of-type(3) {
+  width: 15%;
+}
+
+.closed-licenses-table > thead > tr > th:nth-of-type(4) {
+  width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* .logo {
   background-color: white;
@@ -128,6 +191,17 @@ ul {
 
 tbody > tr > th {
   font-weight: 400;
+}
+
+.action-col {
+  width: 70px !important;
+  text-align: center;
+  font-size: 9pt;
+}
+
+.process-icon {
+  color: green;
+  font-size: 20px;
 }
 
 

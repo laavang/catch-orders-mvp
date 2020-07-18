@@ -28,4 +28,12 @@ export const logOut = () => {
     }
 }
 
+export const filterLicenses = (licenseFilter) => {
+    return {
+        type: 'FILTER_LICENSES',
+        value: licenseFilter
+    }
+}
+
+
 

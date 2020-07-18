@@ -1,12 +1,11 @@
 import { connect } from 'react-redux'
-import Dashboard from '../components/Dashboard'
+import Licenses from '../components/Licenses'
 import { removeLicense } from '../redux/actions'
 
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        licenses: state.licenses,
-        licenseFilter: state.licenseFilter
+        licenses: state.licenses
     }
 }
 
@@ -17,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Licenses)

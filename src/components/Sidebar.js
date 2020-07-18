@@ -1,5 +1,8 @@
 import React from 'react'
-const Sidebar = () => {
+import { Link } from 'react-router-dom'
+
+
+const Sidebar = (props) => {
 
     return (
 <div class="sidebar sidebar-md-show">
@@ -7,13 +10,16 @@ const Sidebar = () => {
     <ul class="nav">
       <li class="nav-title">Orders</li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="nav-icon cui-speedometer"></i> Open Orders
+        <a id="open-orders" class="nav-link" onClick={() => 
+          props.filterLicenses("open")}>
+          Open Orders
         </a>
       </li>
       <li class="nav-item nav-dropdown">
-        <a class="nav-link nav-dropdown-toggle" href="#">
-          <i class="nav-icon cui-puzzle"></i> Closed Orders
+        <a id="closed-orders" class="nav-link" onClick={() =>
+          props.filterLicenses("closed")
+          }>
+            Closed Orders
         </a>
       </li>
     </ul>
