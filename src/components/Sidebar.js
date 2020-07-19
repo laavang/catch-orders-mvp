@@ -1,22 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 const Sidebar = (props) => {
 
+  let focus = "red !important";
+
     return (
-<div class="sidebar sidebar-md-show">
-  <nav class="sidebar-nav">
-    <ul class="nav">
-      <li class="nav-title">Orders</li>
-      <li class="nav-item">
-        <a id="open-orders" class="nav-link" onClick={() => 
+<div className="sidebar sidebar-md-show">
+  <nav className="sidebar-nav">
+    <ul className="nav">
+      <li className="nav-title">Orders</li>
+      <li className="nav-item" style={{backgroundColor:{focus}}}>
+        <a id="open-orders" className="nav-link" onClick={() => 
           props.filterLicenses("open")}>
           Open Orders
         </a>
       </li>
-      <li class="nav-item nav-dropdown">
-        <a id="closed-orders" class="nav-link" onClick={() =>
+      <li className="nav-item nav-dropdown" style={{backgroundColor:{focus}}}>
+        <a id="closed-orders" className="nav-link" onClick={() =>
           props.filterLicenses("closed")
           }>
             Closed Orders
@@ -24,7 +25,7 @@ const Sidebar = (props) => {
       </li>
     </ul>
   </nav>
-  <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+  <button className="sidebar-minimizer brand-minimizer" type="button"></button>
 </div>
     )
 }

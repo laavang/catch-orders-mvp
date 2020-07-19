@@ -8,6 +8,8 @@ const licenses = (state = [], action) => {
             const licenses = [ ...state ]
             licenses.splice(action.value, 1)
             return licenses
+        case 'FETCH_LICENSES': 
+            return action.value
         default:
             return state
     }

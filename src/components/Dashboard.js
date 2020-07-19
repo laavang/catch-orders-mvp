@@ -1,11 +1,6 @@
 import React from 'react'
 import {
-    Container,
-    Table,
-    TableBody,
-    th,
-    TableHead,
-    TableRow
+    Container
 } from '@material-ui/core'
 import AddLicense from '../containers/AddLicense'
 import Sidebar from '../containers/Sidebar'

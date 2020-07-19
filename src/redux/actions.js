@@ -35,5 +35,20 @@ export const filterLicenses = (licenseFilter) => {
     }
 }
 
+export const fetchLicenses = () => {
+    return (dispatch) => {
+        fetch('http://localhost:4000/licenses')
+            .then(res => res.json())
+            .then(response => {
+                const action = {
+                    type: 'FETCH_LICENSES',
+                    value: response
+                }
+                dispatch(action)
+            }).catch(e => {
+                console.log('error ===> ', e);
+            });
+    }
+}
 
 

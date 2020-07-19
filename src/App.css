@@ -101,6 +101,20 @@ ul {
   width: 60%;
 }
 
+.nav-link:active, {
+  background-color: #d8303e !important
+}
+
+/* .card-header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+.card-header > .row {
+  display: flex;
+  align-items: center;
+} */
 
 
 
