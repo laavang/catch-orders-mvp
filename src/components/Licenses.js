@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import DeleteIcon from '@material-ui/icons/Delete'
 import CachedIcon from '@material-ui/icons/Cached';
-import EditIcon from '@material-ui/icons/Edit';
+import UpdateLicense from './UpdateLicense'
 
 
 const Licenses = (props) => {
@@ -39,19 +39,18 @@ const Licenses = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {openLicenses.map((license, idx) => (
+                    {openLicenses.map((license, index) => (
                         <tr key={license.license_id}>
                             <th scope="col">{license.flaghousePO}</th>
                             <th scope="col">{license.buyer}</th>
                             <th scope="col">{license.site}</th>
                             <th scope="col">{license.license}</th>
                             <th scope="col" style={{ textAlign: "center" }}>
-                                <EditIcon
-                                    className="icon" />
+                                <UpdateLicense license={license} index={index} license_id={license.license_id} />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <DeleteIcon
-                                    onClick={() => props.removeLicense(idx)}
+                                    onClick={() => props.removeLicense(index)}
                                     className="icon text-red" />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>

@@ -10,6 +10,13 @@ const licenses = (state = [], action) => {
             return licenses
         case 'FETCH_LICENSES': 
             return action.value
+        case 'UPDATE_LICENSE':
+            // const licenses = [ ...state ]
+            // const updatedLicenseIndex = action.value[0]
+            // const updatedLicense = action.value[1]
+            // licenses.splice(updatedLicenseIndex, 1)
+            // license.splice(updatedLicenseIndex, 0, updatedLicense)
+            return action.value
         default:
             return state
     }
@@ -38,5 +45,6 @@ const licenseFilter = (state = {licenseFilter : "open"}, action) => {
             return state
     }
 }
+
 
 export default combineReducers({ user, licenses, licenseFilter })

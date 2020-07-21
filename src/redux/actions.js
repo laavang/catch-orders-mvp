@@ -13,18 +13,19 @@ export const removeLicense = (index) => {
     }
 }
 
-
-export const logIn = (user) => {
-    return {
-        type: 'LOG_IN',
-        value: user
-    }
-}
-
-export const logOut = () => {
-    return {
-        type: 'LOG_OUT',
-        value: ""
+export const updateLicense = (license) => {
+    return (dispatch) => {
+        fetch("http://localhost:4000/licenses/"+license.license_id, license)
+            .then(res => res.json())
+            .then(licenses => {
+                const action = {
+                    type: 'UPDATE_LICENSE',
+                    value: license
+                }
+                dispatch(action)
+            }).catch(e => {
+                console.log('error ===> ', e);
+            });
     }
 }
 
@@ -50,5 +51,22 @@ export const fetchLicenses = () => {
             });
     }
 }
+
+
+export const logIn = (user) => {
+    return {
+        type: 'LOG_IN',
+        value: user
+    }
+}
+
+export const logOut = () => {
+    return {
+        type: 'LOG_OUT',
+        value: ""
+    }
+}
+
+
 
 
