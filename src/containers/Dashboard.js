@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
-import { removeLicense } from '../redux/actions'
+// import { deleteLicense } from '../redux/actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 // add mapDispatchToProps function here
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeLicense: (index) => dispatch(removeLicense(index))
+        // removeLicense: (index) => dispatch(removeLicense(index))
     }
 }
 

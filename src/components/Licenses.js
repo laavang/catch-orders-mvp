@@ -6,24 +6,31 @@ import UpdateLicense from './UpdateLicense'
 
 const Licenses = (props) => {
 
-    // const [licenses, setLicenses] = useState([]);
+    // const [fetchingStatus, reportFetchingStatus] = useState(false);
+    const [updateCount, addUpdate] = useState(0);
+
+    const triggerLicenseUpdate = () => {
+
+        addUpdate(updateCount + 1)
+    }
 
     useEffect(() => {
+        // reportFetchingStatus(fetchingStatus => !fetchingStatus)
         props.fetchLicenses();
     }, []);
 
-    console.log(props.licenses)
-
+    
     if (props.licenses.length === 0) {
         console.log('No license found.')
         return <div></div>
     }
 
     else {
-
+        
         console.log('Licenses found: ', props.licenses)
 
-        let openLicenses = props.licenses.filter(license => license.isClosed === 0);
+        let undeletedLicenses = props.licenses.filter(license => license.isDeleted === 0);
+        let openLicenses = undeletedLicenses.filter(license => license.isClosed === 0);
 
         return (
             <table class="table table-striped table-bordered open-licenses-table">
@@ -46,11 +53,11 @@ const Licenses = (props) => {
                             <th scope="col">{license.site}</th>
                             <th scope="col">{license.license}</th>
                             <th scope="col" style={{ textAlign: "center" }}>
-                                <UpdateLicense license={license} index={index} license_id={license.license_id} />
+                                <UpdateLicense license={license} index={index} updateLicense={props.updateLicense} fetchLicenses={props.fetchLicenses} triggerLicenseUpdate={triggerLicenseUpdate}/>
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <DeleteIcon
-                                    onClick={() => props.removeLicense(index)}
+                                    onClick={() => props.deleteLicense(license)}
                                     className="icon text-red" />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>

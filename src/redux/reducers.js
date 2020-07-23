@@ -4,19 +4,21 @@ const licenses = (state = [], action) => {
     switch(action.type) {
         case 'ADD_LICENSE':
             return [ ...state, action.value ]
-        case 'REMOVE_LICENSE':
-            const licenses = [ ...state ]
-            licenses.splice(action.value, 1)
-            return licenses
+        case 'DELETE_LICENSE':
+            // const licenses = [ ...state ]
+            // licenses.splice(action.value, 1)
+            // return licenses
+            return state
         case 'FETCH_LICENSES': 
             return action.value
         case 'UPDATE_LICENSE':
-            // const licenses = [ ...state ]
+            // console.log(action.value);
+            // const licenseArray = [ ...state ]
             // const updatedLicenseIndex = action.value[0]
             // const updatedLicense = action.value[1]
-            // licenses.splice(updatedLicenseIndex, 1)
-            // license.splice(updatedLicenseIndex, 0, updatedLicense)
-            return action.value
+            // licenseArray.splice(updatedLicenseIndex, 1)
+            // licenseArray.splice(updatedLicenseIndex, 0, updatedLicense)
+            return state
         default:
             return state
     }

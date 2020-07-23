@@ -10,10 +10,12 @@ import {
 class AddLicense extends Component {
     state = {
         open: false,
-        name: '',
-        mpg: '',
-        cylinders: '',
-        horsepower: '',
+        flaghousePO: '',
+        buyer: '',
+        site: '',
+        license: '',
+        licenseStart: '',
+        licenseEnd: ''
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -24,72 +26,99 @@ class AddLicense extends Component {
         this.setState(newState)
     }
 
+    // async const createLicense = (payload) {
+    //     const response = await fetch(url, {
+    //       method: 'POST', 
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(payload) 
+    //     });
+    //     return response.json(); 
+    //   }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const payload = { ...this.state }
-        payload.id = this.props.carTotal + 1
         delete payload.open
         this.props.addLicense(payload)
-        this.setState({ 
+        this.setState({
             open: false,
             flaghousePO: '',
             buyer: '',
             site: '',
             license: '',
-         })
+            licenseStart: '',
+            licenseEnd: ''
+        })
     }
 
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-            flaghousePO: '',
-            buyer: '',
-            site: '',
-            license: '',
+                flaghousePO: '',
+                buyer: '',
+                site: '',
+                license: '',
+                licenseStart: '',
+                licenseEnd: ''
             })
         }
     }
 
+
     render() {
         return (
             <Fragment>
-                    <Button
-                        variant="contained"
-                        className="add-license"
-                        onClick={this.toggleDialog}
-                    >
-                        Add License
+                <Button
+                    variant="contained"
+                    className="add-license"
+                    onClick={this.toggleDialog}
+                >
+                    Add License
                     </Button>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
                         <DialogTitle>Add License</DialogTitle>
                         <DialogContent>
-                            <form 
+                            <form
                                 onSubmit={this.handleSubmit}
                                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
-                                <TextField 
-                                    id="flaghousePO" 
-                                    placeholder="Flaghouse PO" 
-                                    value={this.state.flaghousePO} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="flaghousePO"
+                                    placeholder="Flaghouse PO"
+                                    value={this.state.flaghousePO}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="buyer" 
-                                    placeholder="Buyer" 
-                                    value={this.state.buyer} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="buyer"
+                                    placeholder="Buyer"
+                                    value={this.state.buyer}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="site" 
-                                    placeholder="Site" 
-                                    value={this.state.site} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="site"
+                                    placeholder="Site"
+                                    value={this.state.site}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="license" 
-                                    placeholder="License" 
-                                    value={this.state.license} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="license"
+                                    placeholder="License"
+                                    value={this.state.license}
+                                    onChange={this.handleTextChange}
+                                    required />
+                                <TextField
+                                    id="licenseStart"
+                                    placeholder="Start Date (MM/DD/YYYY)"
+                                    value={this.state.licenseStart}
+                                    onChange={this.handleTextChange}
+                                    required />
+                                <TextField
+                                    id="licenseEnd"
+                                    placeholder="Expiration Date (MM/DD/YYYY)"
+                                    value={this.state.licenseEnd}
+                                    onChange={this.handleTextChange}
                                     required />
                                 <br />
                                 <Button variant="contained" color="primary" type="submit">Submit</Button>

@@ -10,13 +10,21 @@ import EditIcon from '@material-ui/icons/Edit';
 
 
 class UpdateLicense extends Component {
+
     
     state = {
         open: false,
+        license_id: this.props.license.license_id,
         flaghousePO: this.props.license.flaghousePO,
         buyer: this.props.license.buyer,
         site: this.props.license.site,
-        license: this.props.license.license
+        license: this.props.license.license,
+        // licenseStart: this.props.license.licenseStart,
+        // licenseEnd: this.props.license.licenseEnd,
+        licenseStart: '2020-01-10 14:45:12',
+        licenseEnd: '2022-01-10 14:45:12',
+        isClosed: this.props.license.isClosed,
+        isDeleted: this.props.license.isDeleted
     }
 
 
@@ -33,18 +41,11 @@ class UpdateLicense extends Component {
         const payload = { ...this.state }
         delete payload.open
         this.props.updateLicense(payload)
+        this.toggleDialog()
+        this.props.fetchLicenses()
+        this.props.triggerLicenseUpdate()
     }
 
-    // componentDidUpdate = (prevProps, prevState) => {
-    //     if (prevState.open !== this.state.open) {
-    //         this.setState({
-    //             flaghousePO: '',
-    //             buyer: '',
-    //             site: '',
-    //             license: '',
-    //         })
-    //     }
-    // }
 
     render() {
         return (

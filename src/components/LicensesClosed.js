@@ -19,7 +19,8 @@ const LicensesClosed = (props) => {
 
             console.log('Licenses found: ', props.licenses)
 
-            let closedLicenses = props.licenses.filter(license => license.isClosed === 1);
+            let undeletedLicenses = props.licenses.filter(license => license.isDeleted === 0);
+            let closedLicenses = undeletedLicenses.filter(license => license.isClosed === 1);
 
             return (
                 <table class="table table-striped table-bordered closed-license-table">

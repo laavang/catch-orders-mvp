@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Licenses from '../components/Licenses'
-import { removeLicense, fetchLicenses, updateLicense } from '../redux/actions'
+import { deleteLicense, fetchLicenses, updateLicense } from '../redux/actions'
 
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchLicenses: () => dispatch(fetchLicenses()), 
-        removeLicense: (index) => dispatch(removeLicense(index)), 
+        deleteLicense: (license) => dispatch(deleteLicense(license)), 
         updateLicense: (licenseData) => dispatch(updateLicense(licenseData))
     }
 }

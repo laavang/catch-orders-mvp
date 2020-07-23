@@ -1,11 +1,19 @@
 import { connect } from 'react-redux'
-import EditLicense from '../components/UpdateLicense'
-import { updateLicense } from '../redux/actions'
+import UpdateLicense from '../components/UpdateLicense'
+import { updateLicense, fetchLicenses } from '../redux/actions'
+
+const mapStateToProps = (state) => {
+    return {
+        listings: state.listings
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
+    console.log("made it to container");
     return {
-        updateLicense: (licenseData) => dispatch(updateLicense(licenseData))
+        updateLicense: (license) => dispatch(updateLicense(license)),
+        fetchLicenses: () => dispatch(fetchLicenses())
     }
 }
  
-export default connect(null, mapDispatchToProps)(UpdateLicense)
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateLicense)
