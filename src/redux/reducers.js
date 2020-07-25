@@ -1,16 +1,42 @@
 import { combineReducers } from 'redux'
 
-const licenses = (state = [], action) => {
-    switch(action.type) {
+const licenses = (state = { items: [], loading: false, error: null, filter: "open" }, action) => {
+    switch (action.type) {
         case 'ADD_LICENSE':
-            return [ ...state, action.value ]
+            return {
+                ...state,
+                items: [...state.licenses.items, action.value],
+            }
         case 'DELETE_LICENSE':
             // const licenses = [ ...state ]
             // licenses.splice(action.value, 1)
             // return licenses
             return state
-        case 'FETCH_LICENSES': 
-            return action.value
+        case 'FETCH_LICENSES_BEGIN':
+            return {
+                ...state,
+                items: [...state.licenses.items],
+                loading: true,
+                error: null,
+            }
+        case 'FETCH_LICENSES_SUCCESS':
+            return {
+                ...state,
+                items: action.value,
+                loading: false,
+                error: null,
+            }
+        case 'FILTER_LICENSES':
+            return {
+                ...state, 
+                filter: action.value
+            }
+        // case 'FETCH_LICENSES_FAILURE':
+        //     return {
+        //         items: [],
+        //         loading: false,
+        //         error: action.value
+        //     }
         case 'UPDATE_LICENSE':
             // console.log(action.value);
             // const licenseArray = [ ...state ]
@@ -39,14 +65,6 @@ const user = (state = { username: null, password: null, isLoggedIn: false }, act
     }
 }
 
-const licenseFilter = (state = {licenseFilter : "open"}, action) => {
-    switch(action.type) {
-        case 'FILTER_LICENSES':
-            return action.value
-        default:
-            return state
-    }
-}
 
 
-export default combineReducers({ user, licenses, licenseFilter })
+export default combineReducers({ user, licenses })

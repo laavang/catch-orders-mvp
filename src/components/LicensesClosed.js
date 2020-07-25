@@ -8,18 +8,29 @@ const LicensesClosed = (props) => {
             props.fetchLicenses();
         }, []);
 
-        console.log(props.licenses)
-
-        if (props.licenses.length === 0) {
-            console.log('No license found.')
-            return <div></div>
+        if (props.licenses.loading == true) {
+            console.log("Loading licenses...")
+            return (
+            <div>
+                <p>Loading...</p>
+            </div>
+            )
         }
-
+    
+        else if (props.licenses.error !== null || props.licenses.items.length === 0) {
+            console.log("No licenses found.")
+            return (
+            <div>
+               <p>No licenses found.</p>
+            </div>
+            )
+        }
+    
         else {
 
             console.log('Licenses found: ', props.licenses)
 
-            let undeletedLicenses = props.licenses.filter(license => license.isDeleted === 0);
+            let undeletedLicenses = props.licenses.items.filter(license => license.isDeleted === 0);
             let closedLicenses = undeletedLicenses.filter(license => license.isClosed === 1);
 
             return (

@@ -6,7 +6,6 @@ import UpdateLicense from './UpdateLicense'
 
 const Licenses = (props) => {
 
-    // const [fetchingStatus, reportFetchingStatus] = useState(false);
     const [updateCount, addUpdate] = useState(0);
 
     const triggerLicenseUpdate = () => {
@@ -15,22 +14,34 @@ const Licenses = (props) => {
     }
 
     useEffect(() => {
-        // reportFetchingStatus(fetchingStatus => !fetchingStatus)
         props.fetchLicenses();
     }, []);
 
     
-    if (props.licenses.length === 0) {
-        console.log('No license found.')
-        return <div></div>
+    if (props.licenses.loading == true) {
+        console.log("Loading licenses...")
+        return (
+        <div>
+            <p>Loading...</p>
+        </div>
+        )
+    }
+
+    else if (props.licenses.error !== null || props.licenses.items.length === 0) {
+        console.log("No licenses found.")
+        return (
+        <div>
+           <p>No licenses found.</p>
+        </div>
+        )
     }
 
     else {
         
-        console.log('Licenses found: ', props.licenses)
-
-        let undeletedLicenses = props.licenses.filter(license => license.isDeleted === 0);
+        let undeletedLicenses = props.licenses.items.filter(license => license.isDeleted === 0);
         let openLicenses = undeletedLicenses.filter(license => license.isClosed === 0);
+
+        console.log("Fetched licenses: ", openLicenses);
 
         return (
             <table class="table table-striped table-bordered open-licenses-table">

@@ -20,17 +20,38 @@ export const filterLicenses = (licenseFilter) => {
     }
 }
 
+
+const FETCH_LICENSES_BEGIN = 'FETCH_LICENSES_BEGIN'
+const FETCH_LICENSES_SUCCESS = 'FETCH_LICENSES_SUCCESS'
+const FETCH_LICENSES_FAILURE = 'FETCH_LICENSES_FAILURE'
+
+export const fetchLicensesBegin = () => {
+    return {
+    type: FETCH_LICENSES_BEGIN
+  }}
+  
+  export const fetchLicensesSuccess = (licenses) => {
+    return {
+    type: FETCH_LICENSES_SUCCESS,
+    value: licenses 
+  }}
+  
+  export const fetchLicensesFailure = (error) => {
+    return {
+    type: FETCH_LICENSES_FAILURE,
+    value: error 
+  }}
+
 export const fetchLicenses = () => {
     return (dispatch) => {
+        dispatch(fetchLicensesBegin)
         fetch('http://localhost:4000/licenses')
             .then(res => res.json())
             .then(response => {
-                const action = {
-                    type: 'FETCH_LICENSES',
-                    value: response
-                }
-                dispatch(action)
+                const licenses = response;
+                dispatch(fetchLicensesSuccess(licenses))
             }).catch(e => {
+                dispatch(fetchLicensesFailure(e))
                 console.log('error ===> ', e);
             });
     }

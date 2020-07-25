@@ -18,9 +18,9 @@ const Dashboard = (props) => {
                     <div class="card-header">
                         <div class="row">
                             <div class="d-flex align-items-center col-6 col-sm-6 col-md-6 col-lg-6" style={{textTransform: "capitalize"}}>
-                                <strong><i class="icon-info pr-1"></i>{props.licenseFilter} Orders</strong>
+                                <strong><i class="icon-info pr-1"></i>{props.licenses.filter} Orders</strong>
                             </div>
-                            {props.licenseFilter === "open" ?
+                            {props.licenses.filter === "open" ?
                             <div sx="6" class="d-flex justify-content-end col-sm-6 col-md-6 col-lg-6">
                                 <AddLicense className="add-license-button" />
                             </div>
@@ -30,7 +30,7 @@ const Dashboard = (props) => {
                         </div>
                     </div>
                     <div class="card-body">
-                        {props.licenseFilter === "open" ?
+                        {props.licenses.filter === "open" ?
                             <Licenses />
                             :
                             <LicensesClosed />

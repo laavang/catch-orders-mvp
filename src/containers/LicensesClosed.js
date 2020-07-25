@@ -5,8 +5,7 @@ import {fetchLicenses} from '../redux/actions'
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        licenses: state.licenses,
-        licenseFilter: state.licenseFilter
+        licenses: state.licenses
     }
 }
 
