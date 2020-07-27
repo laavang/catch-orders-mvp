@@ -8,7 +8,7 @@ const LicensesClosed = (props) => {
             props.fetchLicenses();
         }, []);
 
-        if (props.licenses.loading == true) {
+        if (props.licenses.loading === true) {
             console.log("Loading licenses...")
             return (
             <div>

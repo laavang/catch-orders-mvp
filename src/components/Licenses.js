@@ -15,7 +15,13 @@ const Licenses = (props) => {
 
     useEffect(() => {
         props.fetchLicenses();
-    }, []);
+    }, [updateCount]);
+
+    
+    const deleteLicense = (license) => { 
+        props.deleteLicense(license)
+        triggerLicenseUpdate();
+    }
 
     
     if (props.licenses.loading == true) {
@@ -68,7 +74,7 @@ const Licenses = (props) => {
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <DeleteIcon
-                                    onClick={() => props.deleteLicense(license)}
+                                    onClick={() => deleteLicense(license)}
                                     className="icon text-red" />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>

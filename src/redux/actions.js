@@ -79,6 +79,7 @@ export const addLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
+            // window.location.reload();
     }
 }
 
@@ -86,7 +87,6 @@ export const addLicense = (license) => {
 
 export const updateLicense = (license) => {
     return (dispatch) => {
-        const index = license.license_id;
         const updatedLicense =  {
             'license_id': license.license_id,
             'flaghousePO': license.flaghousePO,
@@ -98,7 +98,6 @@ export const updateLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 0
         };
-        const licenseData = [index, updatedLicense];
         const url = "http://localhost:4000/licenses/" + license.license_id;
         fetch(url, {
             method: 'PUT',
@@ -107,18 +106,11 @@ export const updateLicense = (license) => {
             },
             body: JSON.stringify(updatedLicense)
         })
-            .then(res => {
-                res.json()
-            })
-            .then(status => {
-                const action = {
-                    type: 'UPDATE_LICENSE',
-                    value: licenseData
-                }
-                dispatch(action)
-            }).catch(e => {
+            .catch(e => {
                 console.log('error ===> ', e);
             });
+            // window.location.reload();
+            //eventually replace this
     }
 }
 
@@ -145,18 +137,15 @@ export const deleteLicense = (license) => {
             },
             body: JSON.stringify(deletedLicense)
         })
-        .then(res => {
-            res.json()
-        })
-        .then(status => {
-            const action = {
-                type: 'DELETE_LICENSE',
-                value: deletedLicense
-            }
-            dispatch(action)
-        }).catch(e => {
+        // .then(res => {
+        //     res.json()
+        // })
+        // })
+        .catch(e => {
             console.log('error ===> ', e);
         });
+        // window.location.reload();
+        //eventually replace this
 }
 }
 
