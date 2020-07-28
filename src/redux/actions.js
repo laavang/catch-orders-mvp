@@ -58,14 +58,43 @@ export const fetchLicenses = () => {
 }
 
 export const addLicense = (license) => {
+
+    console.log("ADD LICENSE: ", license)
+
     return (dispatch) => {
+
+        let licenseStartMonth = license.licenseStart.slice(0,2);
+        let licenseStartDay = license.licenseStart.slice(3,5);
+        let licenseStartYear = license.licenseStart.slice(6,10);
+
+        let licenseEndMonth = license.licenseEnd.slice(0,2);
+        let licenseEndDay = license.licenseEnd.slice(3,5);
+        let licenseEndYear = license.licenseEnd.slice(6,10);
+
+        let licenseStart = `${licenseStartYear}-${licenseStartMonth}-${licenseStartDay} 00:00:00`
+        let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
+
+        const newLicense =  {
+            'flaghousePO': license.flaghousePO,
+            'buyer': license.buyer,
+            'site': license.site,
+            'license': license.license,
+            'licenseStart': licenseStart,
+            'licenseEnd': licenseEnd,
+            'isClosed': 0,
+            'isDeleted': 0
+        };
+
+        console.log("NEW LICENSE BEING SENT: ", newLicense);
+
+
         fetch('http://localhost:4000/licenses/add',
         {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(license)
+            body: JSON.stringify(newLicense)
         })
             .then(res => res.json())
             .then(response => {
@@ -87,6 +116,18 @@ export const addLicense = (license) => {
 
 export const updateLicense = (license) => {
     return (dispatch) => {
+
+        // let licenseStartMonth = license.licenseStart.slice(0,2);
+        // let licenseStartDay = license.licenseStart.slice(3,5);
+        // let licenseStartYear = license.licenseStart.slice(6,10);
+
+        // let licenseEndMonth = license.licenseEnd.slice(0,2);
+        // let licenseEndDay = license.licenseEnd.slice(3,5);
+        // let licenseEndYear = license.licenseEnd.slice(6,10);
+
+        // let licenseStart = `${licenseStartYear}-${licenseStartMonth}-${licenseStartDay} 00:00:00`
+        // let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
+        
         const updatedLicense =  {
             'license_id': license.license_id,
             'flaghousePO': license.flaghousePO,

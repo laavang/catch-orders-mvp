@@ -59,7 +59,7 @@ ul {
 }
 
 
-.open-licenses-table > thead > tr > th:nth-of-type(1) {
+/* .open-licenses-table > thead > tr > th:nth-of-type(1) {
   width: 10%;
 }
 .open-licenses-table > thead > tr > th:nth-of-type(2) {
@@ -99,7 +99,7 @@ ul {
 
 .closed-licenses-table > thead > tr > th:nth-of-type(4) {
   width: 60%;
-}
+} */
 
 .nav-link:active, {
   background-color: #d8303e !important

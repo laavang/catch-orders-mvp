@@ -43,7 +43,6 @@ class AddLicense extends Component {
         delete payload.open
         this.props.addLicense(payload)
         this.setState({
-            open: false,
             flaghousePO: '',
             buyer: '',
             site: '',
@@ -110,13 +109,13 @@ class AddLicense extends Component {
                                     required />
                                 <TextField
                                     id="licenseStart"
-                                    placeholder="Start Date (MM/DD/YYYY)"
+                                    placeholder="Start Date (MM-DD-YYYY)"
                                     value={this.state.licenseStart}
                                     onChange={this.handleTextChange}
                                     required />
                                 <TextField
                                     id="licenseEnd"
-                                    placeholder="Expiration Date (MM/DD/YYYY)"
+                                    placeholder="Expiration Date (MM-DD-YYYY)"
                                     value={this.state.licenseEnd}
                                     onChange={this.handleTextChange}
                                     required />

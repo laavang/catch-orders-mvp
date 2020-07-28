@@ -41,15 +41,19 @@ const LicensesClosed = (props) => {
                             <th scope="col">Buyer</th>
                             <th scope="col">Site</th>
                             <th scope="col">License</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         {closedLicenses.map((license, idx) => (
                             <tr key={license.id}>
-                                <th scope="col">{license["flaghousePO"]}</th>
-                                <th scope="col">{license["buyer"]}</th>
-                                <th scope="col">{license["site"]}</th>
-                                <th scope="col">{license["license"]}</th>
+                                <th scope="col">{license.flaghousePO}</th>
+                                <th scope="col">{license.buyer}</th>
+                                <th scope="col">{license.site}</th>
+                                <th scope="col">{license.license}</th>
+                                <th scope="col">{license.licenseStart}</th>
+                                <th scope="col">{license.licenseEnd}</th>
                             </tr>
                         ))}
                     </tbody>
