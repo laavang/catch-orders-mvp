@@ -49,6 +49,25 @@ export const fetchLicenses = () => {
             .then(res => res.json())
             .then(response => {
                 const licenses = response;
+
+                for (let i=0; i<licenses.length; i++) {
+                    let startDateTime = licenses[i].licenseStart;
+                    let endDateTime = licenses[i].licenseEnd;
+                    
+                    let startMonth = startDateTime.slice(5,7);
+                    let startDay = startDateTime.slice(8,10);
+                    let startYear = startDateTime.slice(0,4);
+                    let licenseStart = `${startMonth}-${startDay}-${startYear}`;
+
+                    let endMonth = endDateTime.slice(5,7);
+                    let endDay = endDateTime.slice(8,10);
+                    let endYear = endDateTime.slice(0,4);
+                    let licenseEnd = `${endMonth}-${endDay}-${endYear}`;
+
+                    licenses[i].licenseStart = licenseStart;
+                    licenses[i].licenseEnd = licenseEnd; 
+                }
+
                 dispatch(fetchLicensesSuccess(licenses))
             }).catch(e => {
                 dispatch(fetchLicensesFailure(e))
@@ -84,9 +103,6 @@ export const addLicense = (license) => {
             'isClosed': 0,
             'isDeleted': 0
         };
-
-        console.log("NEW LICENSE BEING SENT: ", newLicense);
-
 
         fetch('http://localhost:4000/licenses/add',
         {

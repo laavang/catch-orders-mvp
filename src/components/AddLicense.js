@@ -50,6 +50,8 @@ class AddLicense extends Component {
             licenseStart: '',
             licenseEnd: ''
         })
+        this.setState({ open: !this.state.open })
+        window.location.reload()
     }
 
     componentDidUpdate = (prevProps, prevState) => {
