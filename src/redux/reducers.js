@@ -12,7 +12,7 @@ const licenses = (state = { items: [], loading: false, error: null, filter: "ope
             // licenses.splice(action.value, 1)
             // return licenses
             return state
-        case 'FETCH_LICENSES_BEGIN':
+       case 'FETCH_LICENSES_BEGIN':
             return {
                 ...state,
                 items: [...state.licenses.items],
@@ -25,6 +25,25 @@ const licenses = (state = { items: [], loading: false, error: null, filter: "ope
                 items: action.value,
                 loading: false,
                 error: null,
+            }
+        case 'PROCESS_LICENSE_BEGIN':
+             return {
+                ...state,
+                items: [...state.licenses.items],
+                loading: true,
+                 error: null,
+            }
+        case 'PROCESS_LICENSE_SUCCESS':
+            return {
+                 ...state,
+                 items: action.value,
+                loading: false,
+                 error: null,
+              }
+        case 'FILTER_LICENSES':
+            return {
+                ...state, 
+                filter: action.value
             }
         case 'FILTER_LICENSES':
             return {

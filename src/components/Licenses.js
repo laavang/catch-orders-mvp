@@ -53,7 +53,7 @@ const Licenses = (props) => {
             <table class="table table-striped table-bordered open-licenses-table">
                 <thead>
                     <tr>
-                        <th scope="col">Flaghouse PO</th>
+                        {/* <th scope="col">Flaghouse PO</th> */}
                         <th scope="col">Buyer</th>
                         <th scope="col">Site</th>
                         <th scope="col">License</th>
@@ -67,12 +67,12 @@ const Licenses = (props) => {
                 <tbody>
                     {openLicenses.map((license, index) => (
                         <tr key={license.license_id}>
-                            <th scope="col">{license.flaghousePO}</th>
+                            {/* <th scope="col">{license.flaghousePO}</th> */}
                             <th scope="col">{license.buyer}</th>
                             <th scope="col">{license.site}</th>
                             <th scope="col">{license.license}</th>
-                            <th scope="col">{license.licenseStart}</th>
-                            <th scope="col">{license.licenseEnd}</th>
+                            <th scope="col">{license.licenseStart.slice(0, 8)}</th>
+                            <th scope="col">{license.licenseEnd.slice(0, 8)}</th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <UpdateLicense license={license} index={index} updateLicense={props.updateLicense} fetchLicenses={props.fetchLicenses} triggerLicenseUpdate={triggerLicenseUpdate}/>
                             </th>
