@@ -17,33 +17,38 @@ const Licenses = (props) => {
         props.fetchLicenses();
     }, [updateCount]);
 
-    
-    const deleteLicense = (license) => { 
+
+    const deleteLicense = (license) => {
         props.deleteLicense(license)
         triggerLicenseUpdate();
     }
 
-    
+    const processLicense = (license) => {
+        props.processLicense(license)
+        triggerLicenseUpdate();
+    }
+
+
     if (props.licenses.loading == true) {
         console.log("Loading licenses...")
         return (
-        <div>
-            <p>Loading...</p>
-        </div>
+            <div>
+                <p>Loading...</p>
+            </div>
         )
     }
 
     else if (props.licenses.error !== null || props.licenses.items.length === 0) {
         console.log("No licenses found.")
         return (
-        <div>
-           <p>No licenses found.</p>
-        </div>
+            <div>
+                <p>No licenses found.</p>
+            </div>
         )
     }
 
     else {
-        
+
         let undeletedLicenses = props.licenses.items.filter(license => license.isDeleted === 0);
         let openLicenses = undeletedLicenses.filter(license => license.isClosed === 0);
 
@@ -74,7 +79,7 @@ const Licenses = (props) => {
                             <th scope="col">{license.licenseStart.slice(0, 8)}</th>
                             <th scope="col">{license.licenseEnd.slice(0, 8)}</th>
                             <th scope="col" style={{ textAlign: "center" }}>
-                                <UpdateLicense license={license} index={index} updateLicense={props.updateLicense} fetchLicenses={props.fetchLicenses} triggerLicenseUpdate={triggerLicenseUpdate}/>
+                                <UpdateLicense license={license} index={index} updateLicense={props.updateLicense} fetchLicenses={props.fetchLicenses} triggerLicenseUpdate={triggerLicenseUpdate} />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <DeleteIcon
@@ -82,7 +87,9 @@ const Licenses = (props) => {
                                     className="icon text-red" />
                             </th>
                             <th scope="col" style={{ textAlign: "center" }}>
-                                <CachedIcon className="icon process-icon" />
+                                <CachedIcon
+                                    onClick={() => processLicense(license)}
+                                className="icon process-icon" />
                             </th>
                         </tr>
                     ))}

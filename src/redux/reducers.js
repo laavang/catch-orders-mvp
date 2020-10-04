@@ -29,16 +29,14 @@ const licenses = (state = { items: [], loading: false, error: null, filter: "ope
         case 'PROCESS_LICENSE_BEGIN':
              return {
                 ...state,
-                items: [...state.licenses.items],
                 loading: true,
-                 error: null,
+                error: null
             }
         case 'PROCESS_LICENSE_SUCCESS':
             return {
                  ...state,
-                 items: action.value,
                 loading: false,
-                 error: null,
+                error: null
               }
         case 'FILTER_LICENSES':
             return {

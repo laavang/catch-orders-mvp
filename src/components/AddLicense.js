@@ -4,8 +4,78 @@ import {
     TextField,
     Dialog,
     DialogContent,
-    DialogTitle
+    DialogTitle,
+    Select, 
+    MenuItem, 
+    InputLabel
 } from '@material-ui/core'
+
+const thinkificBundles = [
+    {
+        "id": 550225,
+        "name": "[Item #01] CATCH Early Childhood Coordination Kit"
+    },
+    {
+        "id": 550228,
+        "name": "[Item #02] CATCH Early Childhood Curriculum & Teacher's Manual"
+    },
+    {
+        "id": 550229,
+        "name": "[Item #03] CATCH.org Early Childhood Activity Pack"
+    },
+    {
+        "id": 550230,
+        "name": "[Item #04] CATCH Coordination Kit (K-5) 6-Week & 9-Week"
+    },
+    {
+        "id": 550232,
+        "name": "[Item #05] CATCH Coordination Kit (K-5) 6-Week"
+    },
+    {
+        "id": 550233,
+        "name": "[Item #06] CATCH Coordination Kit (K-5) 9-Week"
+    },
+    {
+        "id": 550234,
+        "name": "[Item #07] CATCH K-5 Curriculum Bundle"
+    },
+    {
+        "id": 550235,
+        "name": "[Item #08] CATCH PE Guidebook & K-5 Physical Activity Pack"
+    },
+    {
+        "id": 963044,
+        "name": "[Item #09] CATCH Coordination Kit (6-8)"
+    },
+    {
+        "id": 963045,
+        "name": "[Item #10] CATCH 6-8 Curriculum Bundle"
+    },
+    {
+        "id": 963046,
+        "name": "[Item #11] CATCH 6-8 PE Guidebook & Physical Activity Pack"
+    },
+    {
+        "id": 963047,
+        "name": "[Item #12] CATCH My Breath E-Cigarette & JUUL Prevention"
+    },
+    {
+        "id": 963049,
+        "name": "[Item #13] CATCH Kids Club After School Curriculum Grades K-5"
+    },
+    {
+        "id": 963050,
+        "name": "[Item #14] CATCH Kids Club After School Curriculum Grades 5-8"
+    },
+    {
+        "id": 963051,
+        "name": "[Item #15] CATCH Kids Club K-5 Physical Activity Pack"
+    },
+    {
+        "id": 963053,
+        "name": "[Item #16] CATCH Kids Club 5-8 Physical Activity Pack"
+    }
+]
 
 class AddLicense extends Component {
     state = {
@@ -103,12 +173,18 @@ class AddLicense extends Component {
                                     value={this.state.site}
                                     onChange={this.handleTextChange}
                                     required />
-                                <TextField
+                                {/* <TextField
                                     id="license"
                                     placeholder="License"
                                     value={this.state.license}
                                     onChange={this.handleTextChange}
-                                    required />
+                                    required /> */}
+                                <InputLabel id="label">License</InputLabel>
+                                <Select labelId="label" id="license" placeholder="License" value={this.state.license} onChange={this.handleTextChange}>
+                                {thinkificBundles.map((thinkificLicense, index) => (
+                                    <MenuItem value={thinkificLicense.id}>{thinkificLicense.name}</MenuItem>
+                                ))}
+                                </Select>
                                 <TextField
                                     id="licenseStart"
                                     placeholder="Start Date (MM-DD-YYYY)"

@@ -23,7 +23,8 @@ const Router = () => {
     return (
             <Switch>
                 <Route path="/login" component={Login} />
-                <ProtectedRoute path="/" component={Dashboard} />
+                {/* <ProtectedRoute path="/" component={Dashboard} /> */}
+                <Route path="/" component={Dashboard} />
             </Switch>
     )
 }

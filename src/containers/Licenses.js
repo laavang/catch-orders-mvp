@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchLicenses: () => dispatch(fetchLicenses()), 
         deleteLicense: (license) => dispatch(deleteLicense(license)), 
         updateLicense: (licenseData) => dispatch(updateLicense(licenseData)),
-        processLicense:(license) => dispatch(processLicense(license))
+        processLicense: (license) => dispatch(processLicense(license))
     }
 }
 

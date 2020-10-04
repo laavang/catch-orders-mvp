@@ -110,6 +110,7 @@ export const processLicenseFailure = (error) => {
 
 export const processLicense = (license) => {
     return (dispatch) => {
+        console.log("License processing initiating...");
         dispatch(processLicenseBegin)
 
         let startDateTime = license.licenseStart;
@@ -128,22 +129,15 @@ export const processLicense = (license) => {
         license.licenseStart = licenseStart;
         license.licenseEnd = licenseEnd;
 
-        fetch('http://localhost:4000/licenses/process',
+        console.log("REACT_APP_BACKEND_URI:" + process.env.REACT_APP_BACKEND_URI);
+
+        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
             {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(license)
-            })
-            .then(res => res.json())
-            .then(response => {
-                // const action = {
-                //     type: 'CREATE_LICENSE',
-                //     value: response
-                // }
-                // dispatch(action)
-                console.log(response)
             })
             .then(dispatch(processLicenseSuccess(license)))
             .catch(e => {
