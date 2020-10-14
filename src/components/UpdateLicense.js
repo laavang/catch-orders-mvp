@@ -58,7 +58,7 @@ class UpdateLicense extends Component {
                         <DialogContent>
                             <form
                                 onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+                                className="update-license-form">
                                 <TextField
                                     id="flaghousePO"
                                     placeholder="Flaghouse PO"
@@ -81,6 +81,20 @@ class UpdateLicense extends Component {
                                     id="license"
                                     placeholder="License"
                                     value={this.state.license}
+                                    onChange={this.handleTextChange}
+                                    required />
+                                <TextField
+                                    id="licenseStart"
+                                    placeholder="Start Date (MM-DD-YYYY)"
+                                    // value={`${this.state.licenseStart.slice(5,7)}-${this.state.licenseStart.slice(8,10)}-${this.state.licenseStart.slice(0,4)}`}
+                                    value={this.state.licenseStart}
+                                    onChange={this.handleTextChange}
+                                    required />
+                                <TextField
+                                    id="licenseEnd"
+                                    placeholder="Expiration Date (MM-DD-YYYY)"
+                                    // value={`${this.state.licenseStart.slice(5,7)}-${this.state.licenseStart.slice(8,10)}-${this.state.licenseStart.slice(0,4)}`}
+                                    value={this.state.licenseStart}
                                     onChange={this.handleTextChange}
                                     required />
                                 <br />

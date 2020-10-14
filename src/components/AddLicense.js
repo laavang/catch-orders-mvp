@@ -7,7 +7,8 @@ import {
     DialogTitle,
     Select, 
     MenuItem, 
-    InputLabel
+    InputLabel, 
+    Input
 } from '@material-ui/core'
 
 const thinkificBundles = [
@@ -154,7 +155,7 @@ class AddLicense extends Component {
                         <DialogContent>
                             <form
                                 onSubmit={this.handleSubmit}
-                                style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
+                                className="add-license-form">
                                 <TextField
                                     id="flaghousePO"
                                     placeholder="Flaghouse PO"
@@ -173,18 +174,27 @@ class AddLicense extends Component {
                                     value={this.state.site}
                                     onChange={this.handleTextChange}
                                     required />
-                                {/* <TextField
+                                <TextField
                                     id="license"
                                     placeholder="License"
                                     value={this.state.license}
                                     onChange={this.handleTextChange}
-                                    required /> */}
-                                <InputLabel id="label">License</InputLabel>
-                                <Select labelId="label" id="license" placeholder="License" value={this.state.license} onChange={this.handleTextChange}>
-                                {thinkificBundles.map((thinkificLicense, index) => (
-                                    <MenuItem value={thinkificLicense.id}>{thinkificLicense.name}</MenuItem>
-                                ))}
-                                </Select>
+                                    required />
+
+        {/* <Select
+          labelId="license-label"
+          id="license"
+          value={this.state.license}
+          onChange={this.handleTextChange}
+          input={<Input />}
+        //   MenuProps={MenuProps}
+        >
+          {thinkificBundles.map((thinkificLicense, index) => (
+            <MenuItem key={thinkificLicense} value={thinkificLicense}>
+              {thinkificLicense.name}
+            </MenuItem>
+          ))}
+        </Select> */}
                                 <TextField
                                     id="licenseStart"
                                     placeholder="Start Date (MM-DD-YYYY)"

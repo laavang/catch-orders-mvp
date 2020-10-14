@@ -204,16 +204,16 @@ export const addLicense = (license) => {
 export const updateLicense = (license) => {
     return (dispatch) => {
 
-        // let licenseStartMonth = license.licenseStart.slice(0,2);
-        // let licenseStartDay = license.licenseStart.slice(3,5);
-        // let licenseStartYear = license.licenseStart.slice(6,10);
+        let licenseStartMonth = license.licenseStart.slice(0, 2);
+        let licenseStartDay = license.licenseStart.slice(3, 5);
+        let licenseStartYear = license.licenseStart.slice(6, 10);
 
-        // let licenseEndMonth = license.licenseEnd.slice(0,2);
-        // let licenseEndDay = license.licenseEnd.slice(3,5);
-        // let licenseEndYear = license.licenseEnd.slice(6,10);
+        let licenseEndMonth = license.licenseEnd.slice(0, 2);
+        let licenseEndDay = license.licenseEnd.slice(3, 5);
+        let licenseEndYear = license.licenseEnd.slice(6, 10);
 
-        // let licenseStart = `${licenseStartYear}-${licenseStartMonth}-${licenseStartDay} 00:00:00`
-        // let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
+        let licenseStart = `${licenseStartYear}-${licenseStartMonth}-${licenseStartDay} 00:00:00`
+        let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
 
         const updatedLicense = {
             'license_id': license.license_id,
@@ -237,7 +237,7 @@ export const updateLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-        // window.location.reload();
+        window.location.reload();
         //eventually replace this
     }
 }

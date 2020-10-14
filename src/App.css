@@ -223,6 +223,19 @@ tbody > tr > th {
   font-size: 20px;
 }
 
+.add-license-form, .update-license-form {
+  display: flex; 
+  flex-direction: column; 
+  width: 350px;
+}
+
+.add-license-form > div, .update-license-form > div {
+  margin-bottom: 10px;
+}
+
+.add-license-form > button, .update-license-form > button {
+  margin-bottom: 25px;
+}
 
 
 
