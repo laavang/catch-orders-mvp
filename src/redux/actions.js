@@ -113,23 +113,20 @@ export const processLicense = (license) => {
         console.log("License processing initiating...");
         dispatch(processLicenseBegin)
 
-        let startDateTime = license.licenseStart;
-        let endDateTime = license.licenseEnd;
+        const licenseToProcess = {
+            'flaghousePO': license.flaghousePO,
+            'buyer': license.buyer,
+            'site': license.site,
+            'license': license.license,
+            'licenseStart': license.licenseStart,
+            'licenseEnd': license.licenseEnd,
+            'isClosed': 0,
+            'isDeleted': 0,
+            'licenseId': license.licenseId
+        };
 
-        let startMonth = startDateTime.slice(5, 7);
-        let startDay = startDateTime.slice(8, 10);
-        let startYear = startDateTime.slice(0, 4);
-        let licenseStart = `${startMonth}-${startDay}-${startYear}`;
-
-        let endMonth = endDateTime.slice(5, 7);
-        let endDay = endDateTime.slice(8, 10);
-        let endYear = endDateTime.slice(0, 4);
-        let licenseEnd = `${endMonth}-${endDay}-${endYear}`;
-
-        license.licenseStart = licenseStart;
-        license.licenseEnd = licenseEnd;
-
-        console.log("REACT_APP_BACKEND_URI:" + process.env.REACT_APP_BACKEND_URI);
+        console.log(license);
+        console.log("License to process ", licenseToProcess);
 
         fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
             {
@@ -137,11 +134,11 @@ export const processLicense = (license) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(license)
+                body: JSON.stringify(licenseToProcess)
             })
             .then(dispatch(processLicenseSuccess(license)))
             .catch(e => {
-                console.log('error ===> ', e);
+                console.log('License processing error ===> ', e);
             });
 }}
 
