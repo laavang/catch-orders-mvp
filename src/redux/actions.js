@@ -213,7 +213,7 @@ export const updateLicense = (license) => {
         let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
 
         const updatedLicense = {
-            'license_id': license.license_id,
+            'licenseId': license.licenseId,
             'flaghousePO': license.flaghousePO,
             'buyer': license.buyer,
             'site': license.site,
@@ -223,7 +223,7 @@ export const updateLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 0
         };
-        const url = "http://localhost:4000/licenses/" + license.license_id;
+        const url = "http://localhost:4000/licenses/" + license.licenseId;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -242,9 +242,9 @@ export const updateLicense = (license) => {
 
 export const deleteLicense = (license) => {
     return (dispatch) => {
-        const id = license.license_id;
+        const id = license.licenseId;
         const deletedLicense = {
-            'license_id': license.license_id,
+            'licenseId': license.licenseId,
             'flaghousePO': license.flaghousePO,
             'buyer': license.buyer,
             'site': license.site,
