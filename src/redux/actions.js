@@ -49,7 +49,7 @@ export const fetchLicensesFailure = (error) => {
 export const fetchLicenses = () => {
     return (dispatch) => {
         dispatch(fetchLicensesBegin)
-        fetch('http://localhost:4000/licenses')
+        fetch(process.env.REACT_APP_BACKEND_URI + '/licenses')
             .then(res => res.json())
             .then(response => {
                 const licenses = response;
@@ -172,7 +172,7 @@ export const addLicense = (license) => {
             'isDeleted': 0
         };
 
-        fetch('http://localhost:4000/licenses/add',
+        fetch(process.env.REACT_APP_BACKEND_URI + '/licenses/add',
             {
                 method: 'POST',
                 headers: {
@@ -223,7 +223,7 @@ export const updateLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 0
         };
-        const url = "http://localhost:4000/licenses/" + license.licenseId;
+        const url = process.env.REACT_APP_BACKEND_URI + license.licenseId;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -254,7 +254,7 @@ export const deleteLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 1
         };
-        const url = "http://localhost:4000/licenses/delete/" + id;
+        const url = process.env.REACT_APP_BACKEND_URI + id;
         fetch(url, {
             method: 'PUT',
             headers: {
