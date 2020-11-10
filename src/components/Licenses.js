@@ -71,7 +71,7 @@ const Licenses = (props) => {
                 </thead>
                 <tbody>
                     {openLicenses.map((license, index) => (
-                        <tr key={license.license_id}>
+                        <tr key={license.licenseId} id={`license-${license.licenseId}`}>
                             {/* <th scope="col">{license.flaghousePO}</th> */}
                             <th scope="col">{license.buyer}</th>
                             <th scope="col">{license.site}</th>

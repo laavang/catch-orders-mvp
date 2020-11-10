@@ -49,7 +49,8 @@ export const fetchLicensesFailure = (error) => {
 export const fetchLicenses = () => {
     return (dispatch) => {
         dispatch(fetchLicensesBegin)
-        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses`)
+        // REMOVE HTTP:// when switching to production
+        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses`)
             .then(res => res.json())
             .then(response => {
                 const licenses = response;
@@ -113,11 +114,86 @@ export const processLicense = (license) => {
         console.log("License processing initiating...");
         dispatch(processLicenseBegin)
 
+        const thinkificBundles = [
+            {
+                "id": 550225,
+                "name": "[Item #01] CATCH Early Childhood Coordination Kit"
+            },
+            {
+                "id": 550228,
+                "name": "[Item #02] CATCH Early Childhood Curriculum & Teacher's Manual"
+            },
+            {
+                "id": 550229,
+                "name": "[Item #03] CATCH.org Early Childhood Activity Pack"
+            },
+            {
+                "id": 550230,
+                "name": "[Item #04] CATCH Coordination Kit (K-5) 6-Week & 9-Week"
+            },
+            {
+                "id": 550232,
+                "name": "[Item #05] CATCH Coordination Kit (K-5) 6-Week"
+            },
+            {
+                "id": 550233,
+                "name": "[Item #06] CATCH Coordination Kit (K-5) 9-Week"
+            },
+            {
+                "id": 550234,
+                "name": "[Item #07] CATCH K-5 Curriculum Bundle"
+            },
+            {
+                "id": 550235,
+                "name": "[Item #08] CATCH PE Guidebook & K-5 Physical Activity Pack"
+            },
+            {
+                "id": 963044,
+                "name": "[Item #09] CATCH Coordination Kit (6-8)"
+            },
+            {
+                "id": 963045,
+                "name": "[Item #10] CATCH 6-8 Curriculum Bundle"
+            },
+            {
+                "id": 963046,
+                "name": "[Item #11] CATCH 6-8 PE Guidebook & Physical Activity Pack"
+            },
+            {
+                "id": 963047,
+                "name": "[Item #12] CATCH My Breath E-Cigarette & JUUL Prevention"
+            },
+            {
+                "id": 963049,
+                "name": "[Item #13] CATCH Kids Club After School Curriculum Grades K-5"
+            },
+            {
+                "id": 963050,
+                "name": "[Item #14] CATCH Kids Club After School Curriculum Grades 5-8"
+            },
+            {
+                "id": 963051,
+                "name": "[Item #15] CATCH Kids Club K-5 Physical Activity Pack"
+            },
+            {
+                "id": 963053,
+                "name": "[Item #16] CATCH Kids Club 5-8 Physical Activity Pack"
+            }];
+
+        let courseId;
+
+        for (let i=0; i<thinkificBundles.length; i++) {
+            if (license.license === thinkificBundles[i].name) {
+                courseId = thinkificBundles[i].id;
+            }
+        }
+
         const licenseToProcess = {
             'flaghousePO': license.flaghousePO,
             'buyer': license.buyer,
             'site': license.site,
             'license': license.license,
+            'courseId': courseId,
             'licenseStart': license.licenseStart,
             'licenseEnd': license.licenseEnd,
             'isClosed': 0,
@@ -128,7 +204,7 @@ export const processLicense = (license) => {
         console.log(license);
         console.log("License to process ", licenseToProcess);
 
-        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
+        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
             {
                 method: 'PUT',
                 headers: {
@@ -140,7 +216,9 @@ export const processLicense = (license) => {
             .catch(e => {
                 console.log('License processing error ===> ', e);
             });
-}}
+            window.location.reload();
+}
+}
 
 
 
@@ -172,7 +250,7 @@ export const addLicense = (license) => {
             'isDeleted': 0
         };
 
-        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/add`,
+        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses/add`,
             {
                 method: 'POST',
                 headers: {
@@ -201,17 +279,8 @@ export const addLicense = (license) => {
 export const updateLicense = (license) => {
     return (dispatch) => {
 
-        let licenseStartMonth = license.licenseStart.slice(0, 2);
-        let licenseStartDay = license.licenseStart.slice(3, 5);
-        let licenseStartYear = license.licenseStart.slice(6, 10);
 
-        let licenseEndMonth = license.licenseEnd.slice(0, 2);
-        let licenseEndDay = license.licenseEnd.slice(3, 5);
-        let licenseEndYear = license.licenseEnd.slice(6, 10);
-
-        let licenseStart = `${licenseStartYear}-${licenseStartMonth}-${licenseStartDay} 00:00:00`
-        let licenseEnd = `${licenseEndYear}-${licenseEndMonth}-${licenseEndDay} 00:00:00`
-
+        console.log(`License to update: ${license}`);
         const updatedLicense = {
             'licenseId': license.licenseId,
             'flaghousePO': license.flaghousePO,
@@ -223,7 +292,7 @@ export const updateLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 0
         };
-        const url = `${process.env.REACT_APP_BACKEND_URI}/${license.licenseId}`;
+        const url = `http://${process.env.REACT_APP_BACKEND_URI}/licenses/${updatedLicense.licenseId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -254,7 +323,7 @@ export const deleteLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 1
         };
-        const url = process.env.REACT_APP_BACKEND_URI + id;
+        const url = `http://${process.env.REACT_APP_BACKEND_URI}/licenses/${deletedLicense.licenseId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

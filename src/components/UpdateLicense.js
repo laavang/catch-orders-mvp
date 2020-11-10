@@ -14,7 +14,7 @@ class UpdateLicense extends Component {
     
     state = {
         open: false,
-        license_id: this.props.license.license_id,
+        licenseId: this.props.license.licenseId,
         flaghousePO: this.props.license.flaghousePO,
         buyer: this.props.license.buyer,
         site: this.props.license.site,
