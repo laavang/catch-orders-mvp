@@ -55,6 +55,10 @@ export const fetchLicenses = () => {
             .then(response => {
                 const licenses = response;
 
+                licenses.sort(function(a, b) {
+                    return a.licenseId - b.licenseId;
+                  });
+
                 for (let i = 0; i < licenses.length; i++) {
                     let startDateTime = licenses[i].licenseStart;
                     let endDateTime = licenses[i].licenseEnd;
