@@ -6,6 +6,7 @@ import AddLicense from '../containers/AddLicense'
 import Sidebar from '../containers/Sidebar'
 import Licenses from '../containers/Licenses'
 import LicensesClosed from '../containers/LicensesClosed'
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 const Dashboard = (props) => {
 
@@ -42,4 +43,6 @@ const Dashboard = (props) => {
     )
 }
 
-export default Dashboard
+// export default Dashboard
+
+export default withAuthenticationRequired(Dashboard);

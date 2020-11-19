@@ -5,6 +5,8 @@ import {
   Button,
   Container
 } from '@material-ui/core'
+// import { useAuth0 } from '@auth0/auth0-react';
+
 
 class Login extends Component {
   state = {
@@ -51,7 +53,8 @@ class Login extends Component {
               type="submit"
               className="login-button"
               variant="contained"
-              color="primary">Login</Button>
+              color="primary">
+              Login</Button>
           </form>
         </Container>
       </div>

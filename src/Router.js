@@ -1,7 +1,8 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import Dashboard from './containers/Dashboard'
-import Login from './containers/Login'
+// import Login from './containers/Login'
+import LoginButton from './components/LoginButton'
 import cookie from 'cookie'
 
 const checkAuth = () => {
@@ -22,7 +23,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
     return (
             <Switch>
-                <Route path="/login" component={Login} />
+                <Route path="/login" component={LoginButton} />
                 <ProtectedRoute path="/" component={Dashboard} />
                 {/* <Route path="/" component={Dashboard} /> */}
             </Switch>
