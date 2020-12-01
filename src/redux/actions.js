@@ -220,7 +220,7 @@ export const processLicense = (license) => {
             .catch(e => {
                 console.log('License processing error ===> ', e);
             });
-            window.location.reload();
+            // window.location.reload();
 }
 }
 
@@ -307,7 +307,7 @@ export const updateLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-        window.location.reload();
+        // window.location.reload();
         //eventually replace this
     }
 }

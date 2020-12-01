@@ -237,6 +237,24 @@ tbody > tr > th {
   margin-bottom: 25px;
 }
 
+.login-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  max-height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  font-size: 30px !important;
+  font-weight: 800;
+  padding: 6px 12px 4px 12px !important;
+  background-color: #d8303e !important;
+  color: white !important;
+}
+
 
 
 /* CORE UI */

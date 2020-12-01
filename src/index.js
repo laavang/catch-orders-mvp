@@ -7,14 +7,14 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-const dashboardUri = process.env.REACT_APP_DASHBOARD_URI;
+// const dashboardUri = process.env.REACT_APP_DASHBOARD_URI;
 
 ReactDOM.render(
     <Auth0Provider
         domain={domain}
         clientId={clientId}
-        // redirectUri = {window.location.origin}
-        redirectUri = {dashboardUri}
+        redirectUri = {window.location.origin}
+        // redirectUri = {dashboardUri}
     >
     <App />
     </Auth0Provider>,
