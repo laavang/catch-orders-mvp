@@ -76,8 +76,8 @@ const Licenses = (props) => {
                             <th scope="col">{license.buyer}</th>
                             <th scope="col">{license.site}</th>
                             <th scope="col">{license.license}</th>
-                            <th scope="col">{license.licenseStart.slice(0, 8)}</th>
-                            <th scope="col">{license.licenseEnd.slice(0, 8)}</th>
+                            <th scope="col">{license.licenseStart.slice(0, 6)}{license.licenseStart.slice(8, 10)}</th>
+                            <th scope="col">{license.licenseEnd.slice(0, 6)}{license.licenseEnd.slice(8, 10)}</th>
                             <th scope="col" style={{ textAlign: "center" }}>
                                 <UpdateLicense license={license} index={index} updateLicense={props.updateLicense} fetchLicenses={props.fetchLicenses} triggerLicenseUpdate={triggerLicenseUpdate} />
                             </th>

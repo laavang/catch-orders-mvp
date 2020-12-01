@@ -33,16 +33,8 @@ const Navigation = () => {
                 </Typography>
                 <ul className="nav-list">
                 <li className="nav-list-item"
-                        onClick={() => {
-                            // console.log("User logged out")
-                            // document.cookie = "loggedIn="
-                            <div id="qsLogoutBtn"
-                            onClick={() => logoutWithRedirect()}
-                          >
-                            Log Out</div>
-                            window.location.replace("/login")
-                        }}>
-                        Logout
+                      onClick={() => logoutWithRedirect()}
+                    >Log Out
                     </li>
                 </ul>
             </Toolbar>
