@@ -9,10 +9,12 @@ const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 // const dashboardUri = process.env.REACT_APP_DASHBOARD_URI;
 
+console.log(domain, clientId, window.location.origin);
+
 ReactDOM.render(
     <Auth0Provider
-        domain={domain}
-        clientId={clientId}
+        domain={process.env.REACT_APP_AUTH0_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
         redirectUri = {window.location.origin}
     >
     <App />
