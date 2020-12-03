@@ -49,8 +49,7 @@ export const fetchLicensesFailure = (error) => {
 export const fetchLicenses = () => {
     return (dispatch) => {
         dispatch(fetchLicensesBegin)
-        // REMOVE HTTP:// when switching to production
-        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses`)
+        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses`)
             .then(res => res.json())
             .then(response => {
                 const licenses = response;
@@ -208,7 +207,7 @@ export const processLicense = (license) => {
         console.log(license);
         console.log("License to process ", licenseToProcess);
 
-        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
+        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/process`,
             {
                 method: 'PUT',
                 headers: {
@@ -254,7 +253,7 @@ export const addLicense = (license) => {
             'isDeleted': 0
         };
 
-        fetch(`http://${process.env.REACT_APP_BACKEND_URI}/licenses/add`,
+        fetch(`${process.env.REACT_APP_BACKEND_URI}/licenses/add`,
             {
                 method: 'POST',
                 headers: {
@@ -296,7 +295,7 @@ export const updateLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 0
         };
-        const url = `http://${process.env.REACT_APP_BACKEND_URI}/licenses/${updatedLicense.licenseId}`;
+        const url = `${process.env.REACT_APP_BACKEND_URI}/licenses/${updatedLicense.licenseId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -327,7 +326,7 @@ export const deleteLicense = (license) => {
             'isClosed': license.isClosed,
             'isDeleted': 1
         };
-        const url = `http://${process.env.REACT_APP_BACKEND_URI}/licenses/${deletedLicense.licenseId}`;
+        const url = `${process.env.REACT_APP_BACKEND_URI}/licenses/${deletedLicense.licenseId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
