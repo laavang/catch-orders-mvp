@@ -221,7 +221,7 @@ export const processLicense = (license) => {
             });
             setTimeout(function(){
                 window.location.reload(1);
-             }, 1500);
+             }, 1000);
 }
 }
 
@@ -277,7 +277,7 @@ export const addLicense = (license) => {
             });
             setTimeout(function(){
                 window.location.reload(1);
-             }, 1500);
+             }, 500);
     }
 }
 
@@ -310,9 +310,9 @@ export const updateLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-            setTimeout(function(){
-                window.location.reload(1);
-             }, 1500);
+            // setTimeout(function(){
+            //     window.location.reload(1);
+            //  }, 500);
     }
 }
 
@@ -348,7 +348,7 @@ export const deleteLicense = (license) => {
             });
             setTimeout(function(){
                 window.location.reload(1);
-             }, 1500);
+             }, 500);
     }
 }
 
