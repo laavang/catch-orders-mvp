@@ -275,7 +275,9 @@ export const addLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-        // window.location.reload();
+            setTimeout(function(){
+                window.location.reload(1);
+             }, 1500);
     }
 }
 
@@ -308,8 +310,9 @@ export const updateLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-        // window.location.reload();
-        //eventually replace this
+            setTimeout(function(){
+                window.location.reload(1);
+             }, 1500);
     }
 }
 
@@ -343,8 +346,9 @@ export const deleteLicense = (license) => {
             .catch(e => {
                 console.log('error ===> ', e);
             });
-        // window.location.reload();
-        //eventually replace this
+            setTimeout(function(){
+                window.location.reload(1);
+             }, 1500);
     }
 }
 
