@@ -216,10 +216,10 @@ export const processLicense = (license) => {
                 body: JSON.stringify(licenseToProcess)
             })
             .then(dispatch(processLicenseSuccess(license)))
+            .then(window.location.reload();)
             .catch(e => {
                 console.log('License processing error ===> ', e);
             });
-            window.location.reload();
 }
 }
 
