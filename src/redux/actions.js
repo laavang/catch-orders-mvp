@@ -219,7 +219,7 @@ export const processLicense = (license) => {
             .catch(e => {
                 console.log('License processing error ===> ', e);
             });
-            // window.location.reload();
+            window.location.reload();
 }
 }
 
