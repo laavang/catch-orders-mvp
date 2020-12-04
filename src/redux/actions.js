@@ -221,7 +221,7 @@ export const processLicense = (license) => {
             });
             setTimeout(function(){
                 window.location.reload(1);
-             }, 3000);
+             }, 1500);
 }
 }
 
